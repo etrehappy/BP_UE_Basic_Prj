@@ -103,8 +103,20 @@
   
 **Как сделано**:
 
-1) В 
-    - о
+1) Создание персонажа 
+    - за основу взят персонаж <a href="https://www.fab.com/listings/53b68688-f8c0-4bc3-8612-7dce8df63b87">Elf Arden</a>
+    - из оригинального пака взяты текстуры, материалы, анимации, скелет, physic asset
+    - BP создан с нуля. <a href="https://www.fab.com/listings/53b68688-f8c0-4bc3-8612-7dce8df63b87">Оригинал</a> использовался в качестве образца. Некоторые настройки остались стандартными для UE (Nav Movement Properties, NavArea, Nav Agent, Rotation, Rotation Yaw)
 
+2) Input
+    - добавлен IMC_Default
+    - добавлены IA_JumpDefault, IA_MoveDefault
+
+3) BP_MainCharacter
+    - подключен AC_MoveComponent
+
+4) AC_MoveComponent
+    - добавлен Input Mapping Context
+    - движение w\a\s\d сделано по аналогии с ThirdPersonCharacter
 
 </details>
