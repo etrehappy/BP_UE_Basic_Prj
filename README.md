@@ -85,7 +85,26 @@
     - проверяет пересечение с BP_ThirdPersonCharacter
     - наносит урон всем, кто находится в зоне
 
-   
+</details>
+
+
+<details><summary>Задание 8. Locomotion<p></p></summary>
+
+**Что сделано**:
+ - и
+
+ <div style="text-align: center;">
+    <img src="./imgs_for_readme/hp_bar_damage.jpg" alt="HP damage" width="600" height="400">
+</div>
+
+
+
+<p></p>
+  
+**Как сделано**:
+
+1) В 
+    - о
 
 
 </details>
