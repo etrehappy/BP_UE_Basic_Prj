@@ -110,13 +110,27 @@
 
 2) Input
     - добавлен IMC_Default
-    - добавлены IA_JumpDefault, IA_MoveDefault
+    - добавлены IA_JumpDefault, IA_LookDefault, IA_MoveDefault(Движение\Бег в разные стороны), IA_SlowWalk(Ходьба), IA_SprintDefault (бег с ускорением)
+    - управление через клавиатуру\мышь или контроллер
 
 3) BP_MainCharacter
+    - подключен интерфейс IMovableCharacter
     - подключен AC_MoveComponent
+    - включено "Orient Rotation to Movement" для поворотов
 
 4) AC_MoveComponent
+    - компонент сохраняет ссылки на Character через интерфейс IMovableCharacter 
     - добавлен Input Mapping Context
-    - движение w\a\s\d сделано по аналогии с ThirdPersonCharacter
+    - движение w\a\s\d, прыжок и движение камеры сделаны по аналогии с ThirdPersonCharacter
+    - ускорение включается по кнопке Shift
+    - переключение ходьба\бег по кнопке Z
+
+5) Анимация. ABP_MainCharacter
+    - добавлена State Machine, которая использует BS_Movement
+    - падение, прыжок, приземление организованы по аналогии с ThirdPersonCharacter, но адаптированы и сделаны с нуля
+
+6) Анимация. BS_Movement
+    - содержит три анимации (Idle, Walk, Run) в зависимоти от скорости
+    - оригинальный <a href="https://www.fab.com/listings/53b68688-f8c0-4bc3-8612-7dce8df63b87">персонаж</a> не имеет анимаций движений влево\вправо\назад, поэтому в настройках BP_MainCharacter используются "Use Controller Rotation Yaw"(false) и "Orient Rotation to Movement"(true) 
 
 </details>
