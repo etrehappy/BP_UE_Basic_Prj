@@ -109,28 +109,53 @@
     - BP создан с нуля. <a href="https://www.fab.com/listings/53b68688-f8c0-4bc3-8612-7dce8df63b87">Оригинал</a> использовался в качестве образца. Некоторые настройки остались стандартными для UE (Nav Movement Properties, NavArea, Nav Agent, Rotation, Rotation Yaw)
 
 2) Input
-    - добавлен IMC_Default
-    - добавлены IA_JumpDefault, IA_LookDefault, IA_MoveDefault(Движение\Бег в разные стороны), IA_SlowWalk(Ходьба), IA_SprintDefault (бег с ускорением)
+    - добавлен IMC_Default, IMC_Fight
+    - добавлены Input Actions: 
+        - IA_JumpDefault, 
+        - IA_LookDefault, 
+        - IA_MoveDefault(Движение\Бег в разные стороны),
+        - IA_SlowWalk(Ходьба), 
+        - IA_SprintDefault (бег с ускорением),
+        - IA_ChangeFightingStance (смена стойки),
+        - IA_Attack (простая атака)
+
     - управление через клавиатуру\мышь или контроллер
 
 3) BP_MainCharacter
     - подключен интерфейс IMovableCharacter
     - подключен AC_MoveComponent
+    - подключен AC_FightComponent
     - включено "Orient Rotation to Movement" для поворотов
+    - используется PlayMontage для анимации простой атаки, экипировки оружия и разоружения.
 
 4) AC_MoveComponent
     - компонент сохраняет ссылки на Character через интерфейс IMovableCharacter 
-    - добавлен Input Mapping Context
+    - подключен IMC_Default (для движения)
     - движение w\a\s\d, прыжок и движение камеры сделаны по аналогии с ThirdPersonCharacter
     - ускорение включается по кнопке Shift
     - переключение ходьба\бег по кнопке Z
 
-5) Анимация. ABP_MainCharacter
-    - добавлена State Machine, которая использует BS_Movement
-    - падение, прыжок, приземление организованы по аналогии с ThirdPersonCharacter, но адаптированы и сделаны с нуля
+5) AC_FightComponent
+    - компонент сохраняет ссылки на Character по аналогии с AC_MoveComponent
+    - подключен IMC_Fight (для сражений)
+    - клавиша E — смена стойки
+    - первый клик по ЛКМ — экипировка оружия
+    - повторный клик по ЛКМ — простая атака
+    - переключение между стойками через Enum E_CharactersStance  
 
-6) Анимация. BS_Movement
-    - содержит три анимации (Idle, Walk, Run) в зависимоти от скорости
+6) Анимация. ABP_MainCharacter
+    - добавлена State Machine, которая использует Blend Space в зависимости от стойки (обычная, кулачный бой, с мечом).
+    - падение, прыжок, приземление организованы по аналогии с ThirdPersonCharacter, но адаптированы и сделаны с нуля
+    - прыжок и падение зависят от вида стойки (см. state machine "Main States")
+    - используются слоты, Layered blend per bone и Blend Mask для смешивания анимаций во время действий (прыжок, сражение, экипировка оружия, разоружения) в разных стойках
+    - стандартные анимации персонажа <a href="https://www.fab.com/listings/53b68688-f8c0-4bc3-8612-7dce8df63b87">Elf Arden</a> в директории "MyContent\External\Characters\ElfArden"
+    - измененные anim. sequences, montages и blend spaces в директории "MyContent\Game\Characters\MainCharacter\Animations"
+
+7) Анимация. BS_NeutralMovement, BS_FistCombatMovement, BS_ArmedMovement
+    - содержат анимации (Idle, Walk, Run) в зависимоти от скорости и стойки
     - оригинальный <a href="https://www.fab.com/listings/53b68688-f8c0-4bc3-8612-7dce8df63b87">персонаж</a> не имеет анимаций движений влево\вправо\назад, поэтому в настройках BP_MainCharacter используются "Use Controller Rotation Yaw"(false) и "Orient Rotation to Movement"(true) 
+
+
+
 
 </details>
