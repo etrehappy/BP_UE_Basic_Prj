@@ -91,10 +91,19 @@
 <details><summary>Задание 8. Locomotion<p></p></summary>
 
 **Что сделано**:
- - и
-
+ - движение (простое, с ускорением)
  <div style="text-align: center;">
-    <img src="./imgs_for_readme/hp_bar_damage.jpg" alt="HP damage" width="600" height="400">
+    <img src="./imgs_for_readme/move.png" alt="move" width="150" height="250">
+</div>
+
+ - прыжок\падение
+ <div style="text-align: center;">    
+     <img src="./imgs_for_readme/jump.png" alt="jump" width="140" height="250">
+</div>
+
+ - простая атака, смена стойки
+ <div style="text-align: center;">
+     <img src="./imgs_for_readme/fight.png" alt="fight" width="258" height="270">
 </div>
 
 
