@@ -164,6 +164,24 @@
     - содержат анимации (Idle, Walk, Run) в зависимоти от скорости и стойки
     - оригинальный <a href="https://www.fab.com/listings/53b68688-f8c0-4bc3-8612-7dce8df63b87">персонаж</a> не имеет анимаций движений влево\вправо\назад, поэтому в настройках BP_MainCharacter используются "Use Controller Rotation Yaw"(false) и "Orient Rotation to Movement"(true) 
 
+</details>
+
+
+<details><summary>Задание 6. Level Sequence и материалы<p></p></summary>
+
+<p></p>
+  
+**Что и как сделано**:
+
+1) Пролёт по карте
+    - записан Level Sequence (/All/Game/MyContent/Sequence/LS_Start)
+    - за основу взято окружение <a href="https://www.fab.com/listings/c4e83f22-369a-4f5c-8f86-d53ccd716ae6"> Dreamscape: Stylized Environment Tower </a> 
+
+2) Изучена работа с материалами
+    - изменен Master Material (/All/Game/MyContent/External/Stylized_Chests/Material/BaseMaterial/M_Master) из асета <a href="https://www.fab.com/listings/e0c2a1eb-d819-4c55-a58e-66691c0b4f5e">Stylized Chests Pack</a>,  который планируется использовать в игре.
+    - изменен стандартный Material Instans (/All/Game/MyContent/Game/Materials/MI_Chest8_my_brown)
+
+
 
 
 
