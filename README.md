@@ -1,6 +1,6 @@
 
 ### Скачивание
-1) Скачать файлы: git clone -b HW_4_first_mechanic --single-branch https://github.com/etrehappy/BP_UE_Basic_Prj.git 
+1) Скачать файлы: git clone -b HW_7_destructions --single-branch https://github.com/etrehappy/BP_UE_Basic_Prj.git 
 
 2) Скачать архив: [Google Диск](https://drive.google.com/drive/folders/1AT4x9XH1Nd9aMRT0jDL8yuACO0efQHsI?usp=drive_link)
     - содержит Characters (Mannequins и Mannequin_UE4) на 400 Мб
@@ -181,8 +181,30 @@
     - изменен Master Material (/All/Game/MyContent/External/Stylized_Chests/Material/BaseMaterial/M_Master) из асета <a href="https://www.fab.com/listings/e0c2a1eb-d819-4c55-a58e-66691c0b4f5e">Stylized Chests Pack</a>,  который планируется использовать в игре.
     - изменен стандартный Material Instans (/All/Game/MyContent/Game/Materials/MI_Chest8_my_brown)
 
+</details>
 
 
+<details><summary>Задание 7. Система разрушений<p></p></summary>
+
+**Что сделано**:
+ - Добавлены несколько разрушемых объектов
+ <div style="text-align: center;">
+    <img src="./imgs_for_readme/gc_0.png" alt="move" width="250
+    " height="250">    
+</div>
+ <div style="text-align: center;">
+    <img src="./imgs_for_readme/gc_1.png" alt="move" width="560
+    " height="250">
+</div>
 
 
+<p></p>
+  
+**Как сделано**:
+
+1) BP_sword
+    - добавлен "SpawnActor FS Master Field Sword"
+    - Master Field создаёт при пересечении мечом другого объекта
+
+2) Для камня и кристалла использован Uniform Fracture. Для бочки — Radial. 
 </details>
