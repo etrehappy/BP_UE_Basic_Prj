@@ -147,7 +147,7 @@
 5) AC_FightComponent
     - компонент сохраняет ссылки на Character по аналогии с AC_MoveComponent
     - подключен IMC_Fight (для сражений)
-    - клавиша E — смена стойки
+    - клавиша C — смена стойки
     - первый клик по ЛКМ — экипировка оружия
     - повторный клик по ЛКМ — простая атака
     - переключение между стойками через Enum E_CharactersStance  
@@ -183,7 +183,6 @@
 
 </details>
 
-
 <details><summary>Задание 7. Система разрушений<p></p></summary>
 
 **Что сделано**:
@@ -208,3 +207,51 @@
 
 2) Для камня и кристалла использован Uniform Fracture. Для бочки — Radial. 
 </details>
+
+
+
+
+<details><summary>Задание 9. Инвентарь <p></p></summary>
+
+**Что сделано**:
+ - Взаимодействие с объектами в мире
+    <div style="text-align: center;">
+        <img src="./imgs_for_readme/interaction.png" alt="move" width="470" height="400">
+    </div>
+ - Инвентарь.  
+    <div style="text-align: center;">
+    <img src="./imgs_for_readme/inventory.png" alt="move" width="420" height="250">
+    <img src="./imgs_for_readme/chest.png" alt="move" width="769" height="250">
+    </div>
+
+<p></p>
+  
+**Как сделано**:
+
+1) Взаимодействие: 
+    - E — клавиша взаимодействия
+    - Добавлен Trace Channel "Interactive" (в настройках проекта)
+    - добавлен IMC_InteractionContext
+    - AC_InteractionComponent — каждый тик отслеживает, на какие интерактивные объекты (Trace Channel "Interactive") смотрит персонаж (./MyContent/Game/Blueprints/Components)
+    - AC_InteractItemComponent — помогает связать BP_предмета с таблицей предметов ItemData через BP-настройки и реализует интерфейс взаимодействия с предметом (I_InteractInterface)
+    - I_InteractInterface — требует реализовать методы "взаимодействие с объектом", "что происходит при взгляде на объект" (./MyContent/Game/Inventory)
+    - ItemData — таблица для списка всех предметов (./MyContent/Game/Inventory)
+    - S_ItemStruct — столбцы для таблицы предметов (./MyContent/Game/Inventory)
+    - WBP_InteractionPrompt — подсказки "что сделать с предметом в мире" и "какую кнопку нажать"
+    - Добавлен enum E_ItemType. Тип предмета влияет на взаимодействие с ним (при помощь AC_InteractItemComponent).
+2) Инвентарь
+    - I - клавиша для открытия инвентаря
+    - S_SlotStruct — структура отдельного слота: ID предмета из таблицы ItemData и кол-во предметов
+    - AC_InventoryComponent — инвентарь, которым может владеть персонаж; при добавлении предметов внутрь инвентаря (Content) указываются ID предмета из таблицы ItemData и кол-во (./MyContent/Game/Blueprints/Components)
+    - HUD перенесён в BP_PlayerControllerMovableCharacter для передачи по ссылке в компоненты и виджеты
+    - WBP_InventorySlot — виджет отдельной ячейки инвентаря
+    - WBP_InventoryGrid — виджет сетки ячеек инвентаря
+    - WBP_DragPreview, BP_DragDropInventory — иконка при перетаскивании предмета в инвентаре
+    - WBP_PlayerMenu —  для запуска доп. окон на экране
+    - WBP_ContainerInventory — для отображения инвентаря предмета и персонажа одновременно
+    - WBP_ActionMenu — контекстное меню инвентаря (действия: Выбросить всё, выбросить один, использовать)
+</details>
+
+
+
+
