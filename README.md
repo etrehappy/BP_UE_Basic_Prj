@@ -272,6 +272,29 @@
 
 </details>
 
+<details><summary>Задание 12. AI <p></p></summary>
+
+**Что сделано**:
+ - Добавлен простой класс NPC
+ - Добавлен NPC, который следует за игроком в пределах navmesh
+ - NPC используется HealthComponent и отражается Healthbar над пешкой.
+ <div style="text-align: center;">
+    <img src="./imgs_for_readme/npc.jpg" alt="move" width="337" height="250">    
+    </div>
+
+<p></p>
+  
+**Как сделано**:
+
+1) Добавлены WBP_NpcHealthBar, AC_NpcWidgetComponent,  I_Npc, BP_ThirdPersonEnemy, BTTask_SetLocation, AIBT_SimpleEnemy, AIBB_SimpleEnemy, AI_SimpleEnemyController
+
+2) BP_ThirdPersonEnemy использует AIPerception (только зрение), NpcWidgetComponent, HealthComponent (создан ранее), 
+3) AI_SimpleEnemyController только запускает дерево AIBT_SimpleEnemy
+4) BTTask_SetLocation получает положение игрока и сохраняет в Blackboard.
+
+
+</details>
+
 
 
 
